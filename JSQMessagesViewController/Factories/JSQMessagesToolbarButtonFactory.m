@@ -59,4 +59,22 @@
     return sendButton;
 }
 
++ (UIButton *)defaultAdditionalButtonItem
+{
+    NSString *sendTitle = @"QR";
+    
+    UIButton *additionalRightButton = [[UIButton alloc] initWithFrame:CGRectZero];
+    [additionalRightButton setTitle:sendTitle forState:UIControlStateNormal];
+    [additionalRightButton setTitleColor:[UIColor jsq_messageBubbleBlueColor] forState:UIControlStateNormal];
+    [additionalRightButton setTitleColor:[[UIColor jsq_messageBubbleBlueColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
+    [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+    
+    additionalRightButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+    additionalRightButton.contentMode = UIViewContentModeCenter;
+    additionalRightButton.backgroundColor = [UIColor clearColor];
+    additionalRightButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
+    
+    return additionalRightButton;
+}
+
 @end

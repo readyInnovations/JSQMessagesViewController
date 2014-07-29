@@ -38,6 +38,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
 - (void)jsq_leftBarButtonPressed:(UIButton *)sender;
 - (void)jsq_rightBarButtonPressed:(UIButton *)sender;
+- (void)jsq_additionalRightBarButtonPressed:(UIButton *)sender;
 
 - (void)jsq_addObservers;
 - (void)jsq_removeObservers;
@@ -70,6 +71,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
     self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
+    self.contentView.additionalRightButtonItem = [JSQMessagesToolbarButtonFactory defaultAdditionalButtonItem];
     
     [self toggleSendButtonEnabled];
 }
@@ -92,6 +94,9 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     [self.delegate messagesInputToolbar:self didPressRightBarButton:sender];
 }
 
+- (void)jsq_additionalRightBarButtonPressed:(UIButton *)sender{
+    [self.delegate messagesInputToolbar:self didPressAdditionalRightBarButton:sender];
+}
 #pragma mark - Input toolbar
 
 - (void)toggleSendButtonEnabled

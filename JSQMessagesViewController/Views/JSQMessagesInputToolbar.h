@@ -52,6 +52,10 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesInputToolbarHeightDefault;
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
        didPressLeftBarButton:(UIButton *)sender;
 
+- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
+       didPressAdditionalRightBarButton:(UIButton *)sender;
+
+
 @end
 
 
