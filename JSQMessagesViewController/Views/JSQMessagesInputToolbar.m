@@ -138,6 +138,19 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                                                         action:@selector(jsq_rightBarButtonPressed:)
                                               forControlEvents:UIControlEventTouchUpInside];
             }
+            else if ([keyPath isEqualToString:NSStringFromSelector(@selector(additionalRightBarButtonItem))]) {
+                [self.contentView.rightBarButtonItem removeTarget:self
+                                                           action:NULL
+                                                 forControlEvents:UIControlEventTouchUpInside];
+                
+                [self.contentView.rightBarButtonItem addTarget:self
+                                                        action:@selector(jsq_additionalRightBarButtonPressed:)
+                                              forControlEvents:UIControlEventTouchUpInside];
+                
+               
+
+                NSLog(@"surprise me");
+            }
         }
     }
 }
@@ -155,6 +168,11 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     
     [self.contentView addObserver:self
                        forKeyPath:NSStringFromSelector(@selector(rightBarButtonItem))
+                          options:0
+                          context:kJSQMessagesInputToolbarKeyValueObservingContext];
+
+    [self.contentView addObserver:self
+                       forKeyPath:NSStringFromSelector(@selector(additionalRightBarButtonItem))
                           options:0
                           context:kJSQMessagesInputToolbarKeyValueObservingContext];
     
@@ -175,6 +193,11 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
         [_contentView removeObserver:self
                           forKeyPath:NSStringFromSelector(@selector(rightBarButtonItem))
                              context:kJSQMessagesInputToolbarKeyValueObservingContext];
+        
+        [self.contentView addObserver:self
+                           forKeyPath:NSStringFromSelector(@selector(additionalRightBarButtonItem))
+                              options:0
+                              context:kJSQMessagesInputToolbarKeyValueObservingContext];
     }
     @catch (NSException *__unused exception) { }
     

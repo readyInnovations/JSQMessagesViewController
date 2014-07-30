@@ -51,7 +51,7 @@
     [sendButton setTitleColor:[[UIColor jsq_messageBubbleBlueColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
     [sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     
-    sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+    sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     sendButton.contentMode = UIViewContentModeCenter;
     sendButton.backgroundColor = [UIColor clearColor];
     sendButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
@@ -61,15 +61,15 @@
 
 + (UIButton *)defaultAdditionalButtonItem
 {
-    NSString *sendTitle = @"QR";
+    NSString *sendTitle = @"QuickReply";
     
     UIButton *additionalRightButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [additionalRightButton setTitle:sendTitle forState:UIControlStateNormal];
-    [additionalRightButton setTitleColor:[UIColor jsq_messageBubbleBlueColor] forState:UIControlStateNormal];
-    [additionalRightButton setTitleColor:[[UIColor jsq_messageBubbleBlueColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
+    [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [additionalRightButton setTitleColor:[[UIColor lightGrayColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
     [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     
-    additionalRightButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+    additionalRightButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     additionalRightButton.contentMode = UIViewContentModeCenter;
     additionalRightButton.backgroundColor = [UIColor clearColor];
     additionalRightButton.tintColor = [UIColor jsq_messageBubbleBlueColor];

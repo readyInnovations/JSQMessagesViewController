@@ -252,6 +252,10 @@ static NSString * const kJSQDemoAvatarNameWoz = @"Steve Wozniak";
      */
 }
 
+- (void)didPressAdditionalRightBarButton:(UIButton *)sender {
+    NSLog(@"AdditionalRightButton Pressed!");
+}
+
 
 
 #pragma mark - JSQMessages CollectionView DataSource
