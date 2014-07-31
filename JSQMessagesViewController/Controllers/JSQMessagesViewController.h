@@ -167,6 +167,7 @@
  *  @param sender The accessory button that was pressed by the user.
  */
 - (void)didPressAccessoryButton:(UIButton *)sender;
+- (void)didPressAdditionalRightBarButton:(UIButton *)sender;
 
 /**
  *  Completes the "sending" of a new message by animating and resetting the `inputToolbar`, 
