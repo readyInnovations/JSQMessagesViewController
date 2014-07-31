@@ -94,7 +94,8 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
     [self.delegate messagesInputToolbar:self didPressRightBarButton:sender];
 }
 
-- (void)jsq_additionalRightBarButtonPressed:(UIButton *)sender{
+- (void)jsq_additionalRightBarButtonPressed:(UIButton *)sender
+{
     [self.delegate messagesInputToolbar:self didPressAdditionalRightBarButton:sender];
 }
 #pragma mark - Input toolbar
@@ -138,12 +139,12 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                                                         action:@selector(jsq_rightBarButtonPressed:)
                                               forControlEvents:UIControlEventTouchUpInside];
             }
-            else if ([keyPath isEqualToString:NSStringFromSelector(@selector(additionalRightBarButtonItem))]) {
-                [self.contentView.rightBarButtonItem removeTarget:self
+            else if ([keyPath isEqualToString:NSStringFromSelector(@selector(additionalRightButtonItem))]) {
+                [self.contentView.additionalRightButtonItem removeTarget:self
                                                            action:NULL
                                                  forControlEvents:UIControlEventTouchUpInside];
                 
-                [self.contentView.rightBarButtonItem addTarget:self
+                [self.contentView.additionalRightButtonItem addTarget:self
                                                         action:@selector(jsq_additionalRightBarButtonPressed:)
                                               forControlEvents:UIControlEventTouchUpInside];
                 
@@ -172,7 +173,7 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                           context:kJSQMessagesInputToolbarKeyValueObservingContext];
 
     [self.contentView addObserver:self
-                       forKeyPath:NSStringFromSelector(@selector(additionalRightBarButtonItem))
+                       forKeyPath:NSStringFromSelector(@selector(additionalRightButtonItem))
                           options:0
                           context:kJSQMessagesInputToolbarKeyValueObservingContext];
     
@@ -194,9 +195,8 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                           forKeyPath:NSStringFromSelector(@selector(rightBarButtonItem))
                              context:kJSQMessagesInputToolbarKeyValueObservingContext];
         
-        [self.contentView addObserver:self
-                           forKeyPath:NSStringFromSelector(@selector(additionalRightBarButtonItem))
-                              options:0
+        [self.contentView removeObserver:self
+                           forKeyPath:NSStringFromSelector(@selector(additionalRightButtonItem))
                               context:kJSQMessagesInputToolbarKeyValueObservingContext];
     }
     @catch (NSException *__unused exception) { }
