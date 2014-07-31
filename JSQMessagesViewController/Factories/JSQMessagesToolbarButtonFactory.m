@@ -66,7 +66,7 @@
     UIButton *additionalRightButton = [[UIButton alloc] initWithFrame:CGRectZero];
     [additionalRightButton setTitle:sendTitle forState:UIControlStateNormal];
     [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    [additionalRightButton setTitleColor:[[UIColor lightGrayColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
+    [additionalRightButton setTitleColor:[[UIColor darkGrayColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
     [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     
     additionalRightButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
