@@ -389,10 +389,16 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
     JSQMessagesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.delegate = self;
     
+    NSAttributedString *attributedMessageText = [messageData attributedText];
     NSString *messageText = [messageData text];
-    NSParameterAssert(messageText != nil);
     
-    cell.textView.text = messageText;
+    NSParameterAssert((messageText != nil || attributedMessageText != nil));
+    
+    if (attributedMessageText) {
+        cell.textView.attributedText = attributedMessageText;
+    } else {
+        cell.textView.text = messageText;
+    }
     cell.messageBubbleImageView = [collectionView.dataSource collectionView:collectionView bubbleImageViewForItemAtIndexPath:indexPath];
     cell.avatarImageView = [collectionView.dataSource collectionView:collectionView avatarImageViewForItemAtIndexPath:indexPath];
     cell.cellTopLabel.attributedText = [collectionView.dataSource collectionView:collectionView attributedTextForCellTopLabelAtIndexPath:indexPath];

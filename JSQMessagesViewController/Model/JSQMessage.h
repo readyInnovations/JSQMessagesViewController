@@ -33,6 +33,12 @@
 @property (copy, nonatomic) NSString *text;
 
 /**
+ *  The body text of the message. If this value is not `nil`, then this value
+ *  is used over the value in text.
+ */
+@property (copy, nonatomic) NSAttributedString *attributedText;
+
+/**
  *  The name of user who sent the message. This value must not be `nil`.
  */
 @property (copy, nonatomic) NSString *sender;

@@ -31,9 +31,15 @@
 
 /**
  *  @return The body text of the message. 
- *  @warning You must not return `nil` from this method.
+ *  @warning You must either return a value from this method or the attributedText method.
  */
 - (NSString *)text;
+
+/**
+ *  @return The body attributed text of the message.
+ *  @warning You must either return a value from this method or the text method.
+ */
+- (NSAttributedString *)attributedText;
 
 /**
  *  @return The name of the user who sent the message.

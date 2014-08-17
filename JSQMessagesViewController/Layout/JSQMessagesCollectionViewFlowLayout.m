@@ -373,10 +373,18 @@ const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
     
     CGFloat textInsetsTotal = [self jsq_messageBubbleTextContainerInsetsTotal];
     
-    CGRect stringRect = [[messageData text] boundingRectWithSize:CGSizeMake(maximumTextWidth - textInsetsTotal, CGFLOAT_MAX)
-                                                         options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
-                                                      attributes:@{ NSFontAttributeName : self.messageBubbleFont }
-                                                         context:nil];
+    CGRect stringRect;
+    if ([messageData attributedText]) {
+        stringRect = [[[messageData attributedText] string] boundingRectWithSize:CGSizeMake(maximumTextWidth - textInsetsTotal, CGFLOAT_MAX)
+                                                      options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+                                                   attributes:@{ NSFontAttributeName : self.messageBubbleFont }
+                                                      context:nil];
+    } else {
+        stringRect = [[messageData text] boundingRectWithSize:CGSizeMake(maximumTextWidth - textInsetsTotal, CGFLOAT_MAX)
+                                                      options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+                                                   attributes:@{ NSFontAttributeName : self.messageBubbleFont }
+                                                      context:nil];
+    }
     
     CGSize stringSize = CGRectIntegral(stringRect).size;
     
@@ -433,7 +441,7 @@ const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
 {
     id<JSQMessageData> messageData = [self.collectionView.dataSource collectionView:self.collectionView messageDataForItemAtIndexPath:indexPath];
     NSString *messageSender = [messageData sender];
-   
+    
     if ([messageSender isEqualToString:[self.collectionView.dataSource sender]]) {
         return self.outgoingAvatarViewSize;
     }
