@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEq-G7-jGt">
-                    <rect key="frame" x="0.0" y="6" width="34" height="32"/>
+                    <rect key="frame" x="4" y="6" width="34" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -20,49 +20,49 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Myo-1S-Vg1">
-                    <rect key="frame" x="184" y="6" width="45" height="32"/>
+                    <rect key="frame" x="266" y="6" width="50" height="32"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="NaR-re-dJ4"/>
-                        <constraint firstAttribute="width" constant="45" id="yde-S9-dHe"/>
+                        <constraint firstAttribute="width" constant="50" id="yde-S9-dHe"/>
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dm4-NT-mvr" customClass="JSQMessagesComposerTextView">
-                    <rect key="frame" x="36" y="7" width="147" height="30"/>
+                    <rect key="frame" x="42" y="7" width="220" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYT-Rr-But">
-                    <rect key="frame" x="230" y="6" width="90" height="32"/>
+                    <rect key="frame" x="222" y="7" width="40" height="30"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="ONY-NO-ck6"/>
-                        <constraint firstAttribute="width" constant="90" id="llL-fl-S3G"/>
+                        <constraint firstAttribute="height" constant="30" id="dQd-Uw-SHC"/>
+                        <constraint firstAttribute="width" constant="40" id="xxM-2N-bCL"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="PYT-Rr-But" secondAttribute="trailing" id="2KT-te-uZx"/>
-                <constraint firstItem="LEq-G7-jGt" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="LAU-fo-GJJ"/>
+                <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="4" id="6oL-oj-yB3"/>
+                <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="4" id="CWj-L8-OBs"/>
+                <constraint firstItem="LEq-G7-jGt" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="4" id="LAU-fo-GJJ"/>
                 <constraint firstAttribute="bottom" secondItem="LEq-G7-jGt" secondAttribute="bottom" constant="6" id="OUX-jX-Hem"/>
-                <constraint firstItem="PYT-Rr-But" firstAttribute="leading" secondItem="Myo-1S-Vg1" secondAttribute="trailing" constant="1" id="QdE-OS-4Ar"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="2" id="bel-3t-t11"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="leading" secondItem="LEq-G7-jGt" secondAttribute="trailing" constant="2" id="iAi-RG-Qmv"/>
-                <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="nrs-7L-psn"/>
+                <constraint firstItem="PYT-Rr-But" firstAttribute="top" secondItem="dm4-NT-mvr" secondAttribute="top" id="OcX-4K-Cf6"/>
+                <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" constant="7" id="Zi2-wC-xBM"/>
+                <constraint firstItem="PYT-Rr-But" firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" id="dWu-Uu-WId"/>
+                <constraint firstItem="dm4-NT-mvr" firstAttribute="top" secondItem="1" secondAttribute="top" constant="7" id="ngK-QO-UkN"/>
                 <constraint firstItem="Myo-1S-Vg1" firstAttribute="top" secondItem="1" secondAttribute="top" constant="6" id="ohV-0Y-Wm6"/>
-                <constraint firstAttribute="bottom" secondItem="PYT-Rr-But" secondAttribute="bottom" constant="6" id="ooZ-rF-GDk"/>
-                <constraint firstAttribute="bottom" secondItem="dm4-NT-mvr" secondAttribute="bottom" constant="7" id="qgN-FG-QNm"/>
-                <constraint firstItem="Myo-1S-Vg1" firstAttribute="leading" secondItem="dm4-NT-mvr" secondAttribute="trailing" constant="1" id="uLl-Th-DGe"/>
+                <constraint firstAttribute="trailing" secondItem="PYT-Rr-But" secondAttribute="trailing" constant="58" id="onT-A7-7BM"/>
+                <constraint firstItem="PYT-Rr-But" firstAttribute="trailing" secondItem="dm4-NT-mvr" secondAttribute="trailing" id="uLC-A4-Q8x"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="additionalRightButtonContainerView" destination="PYT-Rr-But" id="H8s-eZ-yFe"/>
-                <outlet property="additionalRightButtonContainerViewWidthConstraint" destination="llL-fl-S3G" id="3mK-Of-zi4"/>
+                <outlet property="containerViewForAdditionalButton" destination="PYT-Rr-But" id="3xQ-rY-tze"/>
                 <outlet property="leftBarButtonContainerView" destination="LEq-G7-jGt" id="F0V-4N-1Mo"/>
                 <outlet property="leftBarButtonContainerViewWidthConstraint" destination="eMy-Af-wwH" id="9Jw-2j-hrn"/>
                 <outlet property="leftHorizontalSpacingConstraint" destination="LAU-fo-GJJ" id="4zo-CQ-0sV"/>
