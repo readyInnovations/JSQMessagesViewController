@@ -81,5 +81,6 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
 @property (assign, nonatomic) CGFloat additionalRightButtonItemWidth;
 
 + (UINib *)nib;
+@property (strong, nonatomic) IBOutlet UIView *containerViewForAdditionalButton;
 
 @end
