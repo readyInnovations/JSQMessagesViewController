@@ -61,16 +61,21 @@
 
 + (UIButton *)defaultAdditionalButtonItem
 {
-    NSString *sendTitle = @"QuickReply";
     
     UIButton *additionalRightButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [additionalRightButton setTitle:sendTitle forState:UIControlStateNormal];
-    [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
-    [additionalRightButton setTitleColor:[[UIColor darkGrayColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
-    [additionalRightButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
+        additionalRightButton.contentMode = UIViewContentModeCenter;
+    UIImage *quickReply = [UIImage imageNamed:@"quick_reply"];
+
     
-    additionalRightButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-    additionalRightButton.contentMode = UIViewContentModeCenter;
+    [additionalRightButton setImage:quickReply forState:UIControlStateNormal];
+    [additionalRightButton setImage:quickReply forState:UIControlStateHighlighted];
+    
+    additionalRightButton.contentMode = UIViewContentModeScaleAspectFit;
+    additionalRightButton.backgroundColor = [UIColor clearColor];
+    additionalRightButton.tintColor = [UIColor lightGrayColor];
+    
+
+    
     additionalRightButton.backgroundColor = [UIColor clearColor];
     additionalRightButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
     
