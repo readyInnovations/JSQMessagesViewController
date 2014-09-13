@@ -298,6 +298,8 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
 
 - (void)didPressAccessoryButton:(UIButton *)sender { }
 
+- (void)didPressAdditionalButton:(UIButton *)sender { }
+
 - (void)finishSendingMessage
 {
     UITextView *textView = self.inputToolbar.contentView.textView;
@@ -595,6 +597,21 @@ static void * kJSQMessagesKeyValueObservingContext = &kJSQMessagesKeyValueObserv
         [self didPressAccessoryButton:sender];
     }
 }
+
+
+- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressAdditionalRightBarButton:(UIButton *)sender
+{
+    if (toolbar.sendButtonOnRight) {
+        [self didPressAdditionalButton:sender];
+         
+    }
+    else {
+        [self didPressAdditionalButton:sender];
+    }
+}
+
+
+
 
 - (NSString *)jsq_currentlyComposedMessageText
 {

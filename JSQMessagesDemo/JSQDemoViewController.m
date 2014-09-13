@@ -179,6 +179,10 @@
      */
 }
 
+- (void)didPressAdditionalRightBarButton:(UIButton *)sender {
+    NSLog(@"AdditionalRightButton Pressed!");
+}
+
 
 
 #pragma mark - JSQMessages CollectionView DataSource

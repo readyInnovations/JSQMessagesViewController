@@ -51,12 +51,35 @@
     [sendButton setTitleColor:[[UIColor jsq_messageBubbleBlueColor] jsq_colorByDarkeningColorWithValue:0.1f] forState:UIControlStateHighlighted];
     [sendButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateDisabled];
     
-    sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:17.0f];
+    sendButton.titleLabel.font = [UIFont boldSystemFontOfSize:16.0f];
     sendButton.contentMode = UIViewContentModeCenter;
     sendButton.backgroundColor = [UIColor clearColor];
     sendButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
     
     return sendButton;
+}
+
++ (UIButton *)defaultAdditionalButtonItem
+{
+    
+    UIButton *additionalRightButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        additionalRightButton.contentMode = UIViewContentModeCenter;
+    UIImage *quickReply = [UIImage imageNamed:@"quick_reply"];
+
+    
+    [additionalRightButton setImage:quickReply forState:UIControlStateNormal];
+    [additionalRightButton setImage:quickReply forState:UIControlStateHighlighted];
+    
+    additionalRightButton.contentMode = UIViewContentModeScaleAspectFit;
+    additionalRightButton.backgroundColor = [UIColor clearColor];
+    additionalRightButton.tintColor = [UIColor lightGrayColor];
+    
+
+    
+    additionalRightButton.backgroundColor = [UIColor clearColor];
+    additionalRightButton.tintColor = [UIColor jsq_messageBubbleBlueColor];
+    
+    return additionalRightButton;
 }
 
 @end

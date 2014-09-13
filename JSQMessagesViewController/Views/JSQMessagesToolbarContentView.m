@@ -33,7 +33,11 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 4.0f;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftBarButtonContainerViewWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet UIView *rightBarButtonContainerView;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBarButtonContainerViewWidthConstraint;
+
+@property (weak, nonatomic) IBOutlet UIView *additionalRightButtonContainerView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *additionalRightButtonContainerViewWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHorizontalSpacingConstraint;
@@ -59,10 +63,16 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 4.0f;
     [super awakeFromNib];
     
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.leftBarButtonContainerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.rightBarButtonContainerView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [self.additionalRightButtonContainerView setTranslatesAutoresizingMaskIntoConstraints:NO];
     
     self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     
+    self.leftBarButtonItem = nil;
+    self.rightBarButtonItem = nil;
+    self.additionalRightButtonItem = nil;
     self.backgroundColor = [UIColor clearColor];
 }
 
@@ -71,8 +81,10 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 4.0f;
     _textView = nil;
     _leftBarButtonItem = nil;
     _rightBarButtonItem = nil;
+    _additionalRightButtonItem = nil;
     _leftBarButtonContainerView = nil;
     _rightBarButtonContainerView = nil;
+    _additionalRightButtonItem = nil;
 }
 
 #pragma mark - Setters
@@ -82,6 +94,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 4.0f;
     [super setBackgroundColor:backgroundColor];
     self.leftBarButtonContainerView.backgroundColor = backgroundColor;
     self.rightBarButtonContainerView.backgroundColor = backgroundColor;
+    self.additionalRightButtonContainerView.backgroundColor = backgroundColor;
 }
 
 - (void)setLeftBarButtonItem:(UIButton *)leftBarButtonItem
@@ -161,6 +174,49 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 4.0f;
     self.rightBarButtonContainerViewWidthConstraint.constant = rightBarButtonItemWidth;
     [self setNeedsUpdateConstraints];
 }
+
+
+
+- (void)setAdditionalRightButtonItem:(UIButton *)additionalRightBarButtonItem
+{
+    if (_additionalRightButtonItem) {
+        [_additionalRightButtonItem removeFromSuperview];
+    }
+    
+    if (!additionalRightBarButtonItem) {
+        //self.additionalRightButtonContainerViewWidthConstraint.constant = 0.0f;
+        self.additionalRightButtonItemWidth = 0.0f;
+        _additionalRightButtonItem = nil;
+        self.additionalRightButtonContainerView.hidden = YES;
+        return;
+    }
+    
+    if (CGRectEqualToRect(additionalRightBarButtonItem.frame, CGRectZero)) {
+        additionalRightBarButtonItem.frame = CGRectMake(0.0f,
+                                              0.0f,
+                                              CGRectGetWidth(self.additionalRightButtonContainerView.frame),
+                                              CGRectGetHeight(self.additionalRightButtonContainerView.frame));
+    }
+    
+    self.additionalRightButtonContainerView.hidden = NO;
+    //self.additionalRightButtonContainerViewWidthConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
+    self.additionalRightButtonItemWidth = CGRectGetWidth(additionalRightBarButtonItem.frame);
+    
+    [self.additionalRightButtonContainerView addSubview:additionalRightBarButtonItem];
+    [self.additionalRightButtonContainerView jsq_pinAllEdgesOfSubview:additionalRightBarButtonItem];
+    [self setNeedsUpdateConstraints];
+    _additionalRightButtonItem = additionalRightBarButtonItem;
+}
+
+
+- (void)additionalRightButtonItemWidth:(CGFloat)rightBarButtonItemWidth
+{
+    self.additionalRightButtonContainerViewWidthConstraint.constant = rightBarButtonItemWidth;
+    [self setNeedsUpdateConstraints];
+}
+
+
+
 
 #pragma mark - Getters
 

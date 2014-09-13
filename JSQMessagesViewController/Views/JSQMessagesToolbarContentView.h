@@ -76,6 +76,11 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  @return The initialized `UINib` object or `nil` if there were errors during
  *  initialization or the nib file could not be located.
  */
+
+@property (nonatomic, strong) UIButton *additionalRightButtonItem;
+@property (assign, nonatomic) CGFloat additionalRightButtonItemWidth;
+
 + (UINib *)nib;
+@property (strong, nonatomic) IBOutlet UIView *containerViewForAdditionalButton;
 
 @end
